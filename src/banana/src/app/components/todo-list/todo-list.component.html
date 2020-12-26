@@ -1,7 +1,5 @@
-<p>todo-list works!</p>
-
-<div class="todo-list-div" *ngFor = "let todo of todos">
-    <div class="todo-item">
-        <p>{{todo.Title}}</p>
-    </div> 
+<div class="ui middle aligned selection divided list">
+    <todo-item *ngFor="let todo of todos" [item]="todo">
+    </todo-item>
 </div>
+  

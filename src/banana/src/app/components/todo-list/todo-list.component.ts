@@ -1,36 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/shared/todo';
 
 @Component({
-  selector: 'app-todo-list',
+  selector: 'todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
+
 export class TodoListComponent implements OnInit {
 
-  todos: object[];
+  todos: Todo[];
 
   constructor() { }
 
   ngOnInit(): void {
-
     this.todos = [
-      {
-        'Id': 1,
-        'Title': 'Todo 1',
-        'Description': 'This is my first Todo',
-        'Status': true
-      },
-      {
-        'Id': 2,
-        'Title': 'Todo 2',
-        'Description': 'This is my second Todo',
-        'Status': false
-      },
-      {
-        'Id': 3,
-        'Title': 'Todo 3',
-        'Description': 'This is my third Todo',
-        'Status': false
-      }];
+      new Todo(1, "Todo1", "Todo Text 1", false),
+      new Todo(2, "Todo2", "Todo Text 2", true),
+      new Todo(3, "Todo3", "Todo Text 3", false)];
   }
 }

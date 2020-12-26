@@ -31,3 +31,35 @@ The goal is to create a small todo-app that shows basic functionality of Angular
     - starts the application (can run while development)
 - ng generate component <componentname>
     - creates a new component and corresponding files
+
+## Pitfalls
+
+### Directive Selectors
+
+If you want to remove the prefix "app" in your selectors for example "app-todo-list" to "todo-list". You have to change in tslint.json following statement 
+
+`"directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ]`
+
+to 
+
+`"directive-selector": [
+      true,
+      "attribute",
+      "camelCase"
+    ]`
+
+### Item Handling
+
+Don't use \<a>-Tags with corresponding classes!!!
+
+If you want to display entries from your list and use a different component use it more like this!
+
+#### todo-list-component.html
+
+`<todo-item *ngFor="let todo of todos" [item]="todo">
+ </todo-item>`
